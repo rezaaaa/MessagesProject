@@ -4,7 +4,7 @@
 <form action="index.php" method="post">
 <b>Subject: <input type="text" name="subject"><br><br>
 <b>Messages:<br><textarea cols="50" rows="4" name="comment"></textarea><br><br>
-<input type="submit" name="submit"></form>
+<input type="submit" name="submit"></form><br><br>
 
 <?php
 if(isset($_POST['submit']))
