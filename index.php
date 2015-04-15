@@ -8,10 +8,10 @@
 
 <?php
 if(isset($_POST['submit']))
-	{	
-		$subject = $_POST['subject'];
-		$message = $_POST['comment'];
-		addMessage($subject, $message);
-		viewAll();
-	}
+{	
+	$subject = $_POST['subject'];
+	$message = $_POST['comment'];
+	addMessage($subject, $message);
+	viewAll();
+}
 ?>
