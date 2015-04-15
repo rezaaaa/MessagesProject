@@ -7,13 +7,11 @@
 <input type="submit" name="submit"></form>
 
 <?php
-		
-		if(isset($_POST['submit'])){	
-			$subject = $_POST['subject'];
-			$message = $_POST['comment'];
-			
-			addMessage($subject, $message);
-			viewAll();
-		}
-		
+if(isset($_POST['submit']))
+	{	
+		$subject = $_POST['subject'];
+		$message = $_POST['comment'];
+		addMessage($subject, $message);
+		viewAll();
+	}
 ?>
