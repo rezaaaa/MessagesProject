@@ -3,6 +3,7 @@
 	
 	class users{
 		public $userid;
+		public $username;
 		public $userpass;
 		public $usertype;
 		public $userfname;
@@ -15,6 +16,10 @@
 		
 		public function getID(){
 			return $this->userid;
+		}
+		
+		public function getUSERNAME(){
+			return $this->username;
 		}
 		
 		public function getPASS(){
@@ -37,6 +42,10 @@
 			$this->userid = $ID;
 		}
 		
+		public function setUSERNAME($USERNAME){
+			$this->username = $USERNAME;
+		}
+		
 		public function setPASS($PASS){
 			$this->userpass = $PASS;
 		}
@@ -53,16 +62,16 @@
 			$this->userlname = $LNAME;
 		}
 		
-		include 'Authentication.php';
+		//include 'Authentication.php';
 		public function determineUSER($userid, $usertype){
-			if($userid = .$row.["id"] == 1 && $usertype = .$row["type"]. == "admin"){
-				$this->userid = .$row["id"].;
-				$this->username = .$row["username"].;
-				$this->userpass = .$row["pass"].;
-				$this->userfname = .$row["fname"].;
-				$this->userlname = .$row["lname"].;
-				$this->usertype = .$row["type"].;
-							
+			$this->userid = .$row["id"].;
+			$this->username = .$row["username"].;
+			$this->userpass = .$row["pass"].;
+			$this->userfname = .$row["fname"].;
+			$this->userlname = .$row["lname"].;
+			$this->usertype = .$row["type"].;
+			
+			if($this->username == 1 && $this->usertype == "admin"){
 				echo "USER INFORMATION<br><br>
 				$this->userid<br>
 				$this->username<br>
