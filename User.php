@@ -6,8 +6,6 @@
 		public $username;
 		public $userpass;
 		public $usertype;
-		public $userfname;
-		public $userlname;
 		public $userage;
 		
 		public function users(){
@@ -30,13 +28,6 @@
 			return $this->usertype;
 		}
 		
-		public function getFNAME(){
-			return $this->userfname;
-		}
-		
-		public function getLNAME(){
-			return $this->userlname;
-		}
 		
 		public function setID($ID){
 			$this->userid = $ID;
@@ -54,50 +45,39 @@
 			$this->usertype = $TYPE;
 		}
 		
-		public function setFNAME($FNAME){
-			$this->userfname = $FNAME;
-		}
 		
-		public function setLNAME($LNAME){
-			$this->userlname = $LNAME;
-		}
-		
-		//include 'Authentication.php';
 		public function determineUSER($userid, $usertype){
-			$this->userid = .$row["id"].;
-			$this->username = .$row["username"].;
-			$this->userpass = .$row["pass"].;
-			$this->userfname = .$row["fname"].;
-			$this->userlname = .$row["lname"].;
-			$this->usertype = .$row["type"].;
+			include 'DAL.php';
+			$this->userid = $row["id"];
+			$this->username = $row["username"];
+			$this->userpass = $row["pass"];
+			$this->usertype = $row["type"];
 			
 			if($this->username == 1 && $this->usertype == "admin"){
+				//ADMIN
 				echo "USER INFORMATION<br><br>
 				$this->userid<br>
 				$this->username<br>
-				$this->userfname $this->userlname<br>
 				$this->usertype<br>";
-					
-				include DAL.php;
+				
+				//include DAL.php;
 				include Message.php;
 			}
 			else{
-				$this->userid = .$row["id"].;
-				$this->username = .$row["username"].;
-				$this->userpass = .$row["pass"].;
-				$this->userfname = .$row["fname"].;
-				$this->userlname = .$row["lname"].;
-				$this->usertype = .$row["type"].;
-							
+				//REGULAR
 				echo "USER INFORMATION<br><br>
 				$this->userid<br>
 				$this->username<br>
-				$this->userfname $this->userlname<br>
 				$this->usertype<br>";
 					
-				include DAL.php;
+				//include DAL.php;
 				include Message.php;
 			}
+		}
+		
+		public function authenticate(){
+			include 'Authentication.php';
+			determineUSER($userid, $usertype);
 		}
 		
 	}
