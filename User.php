@@ -54,34 +54,21 @@
 		}
 		
 		include Authentication.php;
-		public function determineUSER($usertype){
-			switch($usertype = $_POST["type"]){
-				case "REGULAR":
-					$this->userid = $_POST["id"];
-					$this->userpass = $_POST["pass"];
-					$this->userfname = $_POST["fname"];
-					$this->userlname = $_POST["lname"];
+		public function viewUSER(){
+			/*$this->userid = $_POST["id"];
+			$this->userpass = $_POST["pass"];
+			$this->userfname = $_POST["fname"];
+			$this->userlname = $_POST["lname"];*/
+			$this->userid = .$row["id"].;
+			$this->userpass = .$row["pass"].;
+			$this->userfname = .$row["fname"].;
+			$this->userlname = .$row["lname"].;
 					
-					echo "USER INFORMATION<br><br>
-						$this->userid<br>
-						$this->userfname $this->userlname<br>";
-						include Message.php;
-					break;
-				case "ADMIN":
-					$this->userid = $_POST["id"];
-					$this->userpass = $_POST["pass"];
-					$this->userfname = $_POST["fname"];
-					$this->userlname = $_POST["lname"];
-					
-					echo "USER INFORMATION<br><br>
-						$this->userid<br>
-						$this->userfname $this->userlname<br>";
-						include Message.php;
-					
-					break;
-				default:
-					echo "Invalid user.";
-			}
+			echo "USER INFORMATION<br><br>
+			$this->userid<br>
+			$this->userfname $this->userlname<br>";
+			include Message.php;
+			break;
 		}
 		
 	}
