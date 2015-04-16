@@ -53,7 +53,7 @@
 			$this->userlname = $LNAME;
 		}
 		
-		
+		include 'Authentication.php';
 		public function determineUSER($userid, $usertype){
 			if($userid = .$row.["id"] == 1 && $usertype = .$row["type"]. == "admin"){
 				$this->userid = .$row["id"].;
