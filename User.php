@@ -53,7 +53,7 @@
 			$this->userlname = $LNAME;
 		}
 		
-		
+		include Authentication.php;
 		public function determineUSER($usertype){
 			switch($usertype = $_POST["type"]){
 				case "REGULAR":
@@ -62,8 +62,10 @@
 					$this->userfname = $_POST["fname"];
 					$this->userlname = $_POST["lname"];
 					
-					include Authentication.php;
-					include DAL.php;
+					echo "USER INFORMATION<br><br>
+						$this->userid<br>
+						$this->userfname $this->userlname<br>";
+						include Message.php;
 					break;
 				case "ADMIN":
 					$this->userid = $_POST["id"];
@@ -71,8 +73,11 @@
 					$this->userfname = $_POST["fname"];
 					$this->userlname = $_POST["lname"];
 					
-					include Aunthentication.php;
-					include DAL.php;
+					echo "USER INFORMATION<br><br>
+						$this->userid<br>
+						$this->userfname $this->userlname<br>";
+						include Message.php;
+					
 					break;
 				default:
 					echo "Invalid user.";
