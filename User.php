@@ -53,22 +53,42 @@
 			$this->userlname = $LNAME;
 		}
 		
-		include Authentication.php;
-		public function viewUSER(){
-			/*$this->userid = $_POST["id"];
-			$this->userpass = $_POST["pass"];
-			$this->userfname = $_POST["fname"];
-			$this->userlname = $_POST["lname"];*/
-			$this->userid = .$row["id"].;
-			$this->userpass = .$row["pass"].;
-			$this->userfname = .$row["fname"].;
-			$this->userlname = .$row["lname"].;
+		
+		public function determineUSER($userid, $usertype){
+			if($userid = .$row.["id"] == 1 && $usertype = .$row["type"]. == "admin"){
+				$this->userid = .$row["id"].;
+				$this->username = .$row["username"].;
+				$this->userpass = .$row["pass"].;
+				$this->userfname = .$row["fname"].;
+				$this->userlname = .$row["lname"].;
+				$this->usertype = .$row["type"].;
+							
+				echo "USER INFORMATION<br><br>
+				$this->userid<br>
+				$this->username<br>
+				$this->userfname $this->userlname<br>
+				$this->usertype<br>";
 					
-			echo "USER INFORMATION<br><br>
-			$this->userid<br>
-			$this->userfname $this->userlname<br>";
-			include Message.php;
-			break;
+				include DAL.php;
+				include Message.php;
+			}
+			else{
+				$this->userid = .$row["id"].;
+				$this->username = .$row["username"].;
+				$this->userpass = .$row["pass"].;
+				$this->userfname = .$row["fname"].;
+				$this->userlname = .$row["lname"].;
+				$this->usertype = .$row["type"].;
+							
+				echo "USER INFORMATION<br><br>
+				$this->userid<br>
+				$this->username<br>
+				$this->userfname $this->userlname<br>
+				$this->usertype<br>";
+					
+				include DAL.php;
+				include Message.php;
+			}
 		}
 		
 	}
