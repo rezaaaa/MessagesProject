@@ -1,0 +1,46 @@
+<html>
+	<title></title>
+	<head></head>
+		<?php
+			session_start();
+		?>
+	<body>
+		<br><br>
+		<form action="RPineroExerMessage.php" method="post">
+			Edit Your Information<br><br>
+			Firstname: <input type="text" name="fname"><br>
+			Lastname: <input type="text" name="lname"><br>
+			Age: <input type="text" name="age"><br>
+			Do you want to change you pass word?<br><br>
+			Yes <input type="radio" name="pass">&nbsp;&nbsp;No <input type="radio" name="pass"><br>
+			<input type="submit" name="submit" value="OK">
+		</form>
+		<?php
+			function connctDB($con){
+				$userid = mysqli_real_escape_string($con, $_POST["userid"]);
+				$userpass = mysqli_real_escape_string($con, $_POST["pass"]);
+				$usertype = mysqli_real_escape_string($con, $_POST["type"]);
+				$userfname = mysqli_real_escape_string($con, $_POST["fname"]);
+				$userlname = mysqli_real_escape_string($con, $_POST["lname"]);
+				$userage = mysqli_real_escape_string($con, $_POST["age"]);
+				$con = new mysqli("localhost", "root", "", "dbname");
+				
+				if($con->connect_error){
+					echo "Can't connect to the database";
+					die();
+				}
+				else{
+					$sql = ("UPDATE tbname SET firstname=$fname, lastname=$lname, age=$age, pass=$pass WHERE id=$id");
+					if($con->query($sql) == true){
+						echo "Info updated!";
+					}
+					else{
+						echo "Info update failed!" . $con->error;
+					}
+				}
+				mysqli_close($con);
+				
+			}
+		?>
+	</body>
+</html>
