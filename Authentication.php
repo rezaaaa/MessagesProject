@@ -31,7 +31,7 @@
 				header('Location: check.php');
 				
 			} else { 
-				echo "Incorrect login Credentials..";
+				echo "<br>Incorrect login Credentials..";
 			} 
 		}	
 		
