@@ -192,4 +192,3 @@ class Message{
 			mysqli_close($Connection);
 		}
 	}
-
