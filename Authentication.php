@@ -23,16 +23,13 @@
 				$i = $strArray[1];
 			}
 
-			if($t == "admin"){
+			if($t == "admin" || $t =="regular"){
 				//This will make admin link to messages;
-				echo "<br>You are an admin";
-				echo "<br>This is the type: {$t}";
-				echo "<br>This is the ID: {$i}";
-			} else if($t == "regular") {
-				//This will make regular link to messages
-				echo "<br>You are a regular";
-				echo "<br>This is the type: {$t}";
-				echo "<br>This is the ID: {$i}";
+				session_start();
+				$_SESSION['id'] = $i;
+				$_SESSION['type'] = $t;
+				header('Location: check.php');
+				
 			} else { 
 				echo "Incorrect login Credentials..";
 			} 
