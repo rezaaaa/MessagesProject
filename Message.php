@@ -31,9 +31,7 @@
 		echo "Subject: ".$output["subject"]."<br />";
 		echo "&nbsp&nbsp&nbspMessage: ".$output["message"]; 
 		
-?>
-<br>
-<?php
+?> <br> <?php
 
 if(($user_type == "regular" && $user_id == $output['userID'])  ||  ($user_type == "admin")){?>
 	
