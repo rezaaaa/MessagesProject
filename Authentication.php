@@ -35,7 +35,6 @@
 			} else { 
 				echo "<br>Incorrect login Credentials..";
 			} 
-			echo $type;
 		}	
 	?>
 </form>
