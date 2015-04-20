@@ -37,11 +37,11 @@
 				$UserInfo =  $User->returnUser();
 				return $UserInfo;
 			} else {
-				return null;
+				$User = new User(0, null, null, null);
+				$UserInfo =  $User->returnUser();
+				return $UserInfo;
 			}
 			mysqli_close($Connection);
 		}
-		
-		public function AddUser(){}
 	}
 ?>
