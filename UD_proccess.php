@@ -2,11 +2,12 @@
 <?php
 
 	if(isset($_POST['update_submit'])) {
+		$update_id = $_POST['update_id'];
 		$update_sub = $_POST['update_sub'];
 		$update_mes = $_POST['update_mes'];
 ?>
 
-<form action="update_confirm.php" method="post">
+<form action="UD_proccess.php" method="post">
 	<b>Edit Subject: <input type="text" name="edit_subject" value="<?php echo $update_sub; ?>" required><br><br>
 	<b>Edit Messages:<br><textarea cols="50" rows="5" name="edit_message" required><?php echo $update_mes; ?></textarea><br>
 	<input type="hidden" name="edit_id" value="<?php echo $update_id; ?>">
