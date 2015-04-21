@@ -4,7 +4,7 @@
 		
 		public function __construct($USERNAME, $PASSWORD, $TYPE){
 			$this->username = $USERNAME;
-			$this->password = $PASSWORD;
+			$this->password = password_hash($PASSWORD, PASSWORD_DEFAULT);
 			$this->type = $TYPE;
 		}
 		
@@ -15,10 +15,13 @@
 				die("Database connection failed!");
 			}
 			else{
-				if(!mysqli_query($con, "INSERT INTO users (username, password, type) VALUES ('{$this->username}','{$this->password}','{$this->type}')")){
-					echo "<br>Account Existed.";
+				$check = mysqli_query($con, "SELECT * FROM users WHERE username = '{$this->username}'");
+				$checkrows = mysqli_num_rows($check);
+				if($checkrows>0){
+					echo "<br>An error in inserting has occurred.";
 				}
 				else{
+					mysqli_query($con, "INSERT INTO users (username, password, type) VALUES ('{$this->username}','{$this->password}','{$this->type}')");
 					echo "<br>Account Added.";
 				}
 			}
