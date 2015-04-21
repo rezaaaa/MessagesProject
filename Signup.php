@@ -11,7 +11,7 @@
 			<input type="submit" name="signup" value="Register Me!">
 		
 			<?php
-				require_once('RPineroDALSignupUser.php');
+				require_once('SignupDAL.php');
 		
 				if(isset($_POST['signup'])){
 					$UserAdd = new UserAdd($_POST['username'], $_POST['password'], $_POST['type']);
