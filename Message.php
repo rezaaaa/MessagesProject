@@ -6,14 +6,11 @@ $user_type = $_SESSION['type'];?>
 
 <form action="Authentication.php" method="get">
 	<input type="submit" value="LOGOUT">
-	
-	<?php if ($user_type == "admin"){
-	echo "ADMIN"; 
-	}?>
-	
+	<?php 
+	if ($user_type == "admin"){
+		echo "ADMIN"; 
+	}?>	 
 </form>
-
-
 
 <form action="Message.php" method="post">
 	<b>Subject: <input type="text" name="subject" required><br><br>
@@ -41,7 +38,8 @@ $user_type = $_SESSION['type'];?>
 
 	if(($user_type == "regular" && $user_id == $output['userID'])  ||  ($user_type == "admin")){?>
 	
-		<form action="UD_process.php" method="post">
+		<form action="UD_proccess.php" method="post">
+			<input type="hidden" name="update_id" value="<?php echo $output["messageID"]; ?>">
 			<input type="hidden" name="update_sub" value="<?php echo $output["subject"]; ?>">
 			<input type="hidden" name="update_mes" value="<?php echo $output["message"]; ?>">
 			<input type="submit" name="update_submit" value="EDIT">
@@ -51,9 +49,9 @@ $user_type = $_SESSION['type'];?>
 		</form>
 			
 <?php 
-		echo "____________________________________________________________________"."<br>";
+		echo "-------------------------------------------------------------------- <br>";
 	}else{ 
-		echo "____________________________________________________________________";
+		echo "--------------------------------------------------------------------";
 ?>
 <br>
 <?php } } ?>
