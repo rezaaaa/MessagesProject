@@ -124,27 +124,27 @@ class Message{
 		$db = new Database();
 		$db->connect();	
 		$db->insert('messages',array('subject'=>$this->Subject,'message'=>$this->Message, 'userID'=>$this->User_ID));
-		}
+	}
 		
-		public function viewMessage(){
+	public function viewMessage(){
 		$db = new Database();
 		$db->connect();
 		$db->sql('SELECT * FROM messages ORDER BY messageID DESC');
 		$res = $db->getResult();
 		return $res;
-		}
+	}
 		
-		public function deleteMessage($delete_id){
+	public function updateMessage($subject, $message, $id){
+		$db = new Database();
+		$db->connect();
+		$db->update('messages',array('subject'=>"$subject",'message'=>"$message"),'messageID='.$id.'');	
+	}
+		
+	public function deleteMessage($delete_id){
 		$db = new Database();
 		$db->connect();
 		$db->delete("messages","messageID={$delete_id}"); 
-		}
-		
-		public function updateMessage($subject, $message, $id){
-		$db = new Database();
-		$db->connect();	
-		$db->update('messages',array('subject'=>"$subject",'message'=>"$message"),'messageID='.$id.''); 	
-		}
+	}
 } 
 
 	class User{
