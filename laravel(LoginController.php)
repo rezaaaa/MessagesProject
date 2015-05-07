@@ -1,0 +1,35 @@
+<?php namespace App\Http\Controllers;
+
+use App\User;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Auth;
+use Request;
+
+class LoginController extends Controller {
+
+	public function index(){
+		$errors = 0;
+		return view('user/index', compact('users', 'errors'));
+	}
+
+	public function show(){
+		
+		$input = Request::all();
+		$username = $input['username'];
+		$password = $input['password'];
+
+		$data = User::where('username', $username)->where('password', $password)->first();
+		
+		if($data!=null){
+			$errors = 0;
+			$id = User::where('username', $data->username)->pluck('id');
+			$type  = User::where('username', $data->username)->pluck('type');
+			return view('user/index', compact('errors', 'id', 'type'));
+			//substitute message view page
+		} else {
+			$errors = 1;
+			return view('user/index', compact('errors'));
+		}		
+	}
+}
